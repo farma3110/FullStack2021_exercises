@@ -1,5 +1,45 @@
 import React from 'react'
 
+const Header = (props) => {
+  return (
+    <div>
+      <h1>{props.name}</h1>
+    </div>      
+  )
+}
+
+const Part = (props) => {
+  return (
+  <div>
+    <p>{props.part.name} {props.part.exercises}</p>
+  </div>
+  )
+}
+
+const Content = (props) => {
+  return (
+    <div>
+      <Part part={props.parts[0]}/>
+      <Part part={props.parts[1]}/>
+      <Part part={props.parts[2]}/>
+    </div>
+  )
+}
+
+const Total = (props) => {
+  let total = 0;
+  let i = 0;
+  for (i = 0; i < props.parts.length; i++) {
+    total = total + props.parts[i].exercises;
+  }
+  return (
+  <div>
+    <p>Number of exercises {total}</p>
+  </div>
+  )
+}
+
+
 const App = () => {
  const course = {
     name: 'Half Stack application development',
@@ -18,45 +58,7 @@ const App = () => {
       }
     ]
   }
-  const Header = (props) => {
-    return (
-      <div>
-        <h1>{props.name}</h1>
-      </div>      
-    )
-  }
-
-  const Part = (props) => {
-    return (
-    <div>
-      <p>{props.part.name} {props.part.exercises}</p>
-    </div>
-    )
-  }
-
-  const Content = (props) => {
-    return (
-      <div>
-        <Part part={props.parts[0]}/>
-        <Part part={props.parts[1]}/>
-        <Part part={props.parts[2]}/>
-      </div>
-    )
-  } 
-
-  const Total = (props) => {
-    let total = 0;
-    let i = 0;
-    for (i = 0; i < props.parts.length; i++) {
-      total = total + props.parts[i].exercises;
-    }
-    return (
-    <div>
-      <p>Number of exercises {total}</p>
-    </div>
-    )
-  }
-
+  
   return (
     <div>
       <Header name={course.name}/>
