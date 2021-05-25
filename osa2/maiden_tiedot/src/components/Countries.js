@@ -1,7 +1,7 @@
 import React from 'react'
 //import Country from './Country.js'
 
-const Country = ({ name, capital, population, languages, flag }) => {
+const Country = ({ name, capital, population, languages, flag  }) => {
   const flag_alt = `Flag of ${name}`
   return(
     <div>
@@ -19,10 +19,9 @@ const Country = ({ name, capital, population, languages, flag }) => {
   )
 }
 
-const CountriesList = ({countries, buttonHandler, getCapitalWeather }) => {
+const CountriesList = ({countries, buttonHandler }) => {
   if (countries.length === 1) {
     const country = countries[0]
-    getCapitalWeather(country.capital)
     return(
       <div>
         <Country 
